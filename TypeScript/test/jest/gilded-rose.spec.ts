@@ -146,11 +146,11 @@ describe('Conjured Mana Cake', () => {
     expect(items[0].quality).toBe(0);
   });
   it('Edge case quality is negative', () => {
-    expect( () => new GildedRose([new Item('Conjured Mana Cake', -3, 12)])).toThrow();
+    expect( () => new GildedRose([new Item('Conjured Mana Cake', 3, -12)])).toThrow();
     //expect an error
   });
   it('Edge case quality is >50', () => {
-    expect( () => new GildedRose([new Item('Conjured Mana Cake', -3, 12)])).toThrow();
+    expect( () => new GildedRose([new Item('Conjured Mana Cake', 3, 112)])).toThrow();
     //expect an error
   });
 
