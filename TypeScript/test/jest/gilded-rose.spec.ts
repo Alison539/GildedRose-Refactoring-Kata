@@ -116,41 +116,41 @@ describe('Backstage', () => {
   });
 });
 
-describe('Conjured', () => {
+describe('Conjured Mana Cake', () => {
   it('Basic functionality', () => {
-    const gildedRose = new GildedRose([new Item('Conjured', 3, 12)]);
+    const gildedRose = new GildedRose([new Item('Conjured Mana Cake', 3, 12)]);
     var items = gildedRose.updateQuality();
-    expect(items[0].name).toBe('Conjured');
+    expect(items[0].name).toBe('Conjured Mana Cake');
     expect(items[0].sellIn).toBe(2);
     expect(items[0].quality).toBe(10);
   });
   it('When quality is 1 (to 0 not negative)', () => {
-    const gildedRose = new GildedRose([new Item('Conjured', 3, 1)]);
+    const gildedRose = new GildedRose([new Item('Conjured Mana Cake', 3, 1)]);
     var items = gildedRose.updateQuality();
-    expect(items[0].name).toBe('Conjured');
+    expect(items[0].name).toBe('Conjured Mana Cake');
     expect(items[0].sellIn).toBe(2);
     expect(items[0].quality).toBe(0);
   });
   it('When sellIn < 0', () => {
-    const gildedRose = new GildedRose([new Item('Conjured', -3, 12)]);
+    const gildedRose = new GildedRose([new Item('Conjured Mana Cake', -3, 12)]);
     var items = gildedRose.updateQuality();
-    expect(items[0].name).toBe('Conjured');
+    expect(items[0].name).toBe('Conjured Mana Cake');
     expect(items[0].sellIn).toBe(-4);
     expect(items[0].quality).toBe(8);
   });
   it('When quality is 0', () => {
-    const gildedRose = new GildedRose([new Item('Conjured', 3, 0)]);
+    const gildedRose = new GildedRose([new Item('Conjured Mana Cake', 3, 0)]);
     var items = gildedRose.updateQuality();
-    expect(items[0].name).toBe('Conjured');
+    expect(items[0].name).toBe('Conjured Mana Cake');
     expect(items[0].sellIn).toBe(2);
     expect(items[0].quality).toBe(0);
   });
   it('Edge case quality is negative', () => {
-    expect( () => new GildedRose([new Item('Conjured', -3, 12)])).toThrow();
+    expect( () => new GildedRose([new Item('Conjured Mana Cake', -3, 12)])).toThrow();
     //expect an error
   });
   it('Edge case quality is >50', () => {
-    expect( () => new GildedRose([new Item('Conjured', -3, 12)])).toThrow();
+    expect( () => new GildedRose([new Item('Conjured Mana Cake', -3, 12)])).toThrow();
     //expect an error
   });
 
@@ -179,11 +179,11 @@ describe('Generic Item', () => {
     expect(items[0].quality).toBe(0);
   });
   it('Edge case quality is negative', () => {
-    expect( () => new GildedRose([new Item('foo', -3, 12)])).toThrow();
+    expect( () => new GildedRose([new Item('foo', 3, -12)])).toThrow();
     //expect an error
   });
   it('Edge case quality is >50', () => {
-    expect( () => new GildedRose([new Item('foo', -3, 12)])).toThrow();
+    expect( () => new GildedRose([new Item('foo', 3, 112)])).toThrow();
     //expect an error
   });
 
